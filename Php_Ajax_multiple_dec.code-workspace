@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../PHP_multiple_ct_crud"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Php_Ajax"
+	}
+}
