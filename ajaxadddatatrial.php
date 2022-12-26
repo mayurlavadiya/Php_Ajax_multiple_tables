@@ -22,13 +22,9 @@
 </head>
 
 <body>
-    <main class="container">
+    <main class="container-fluid">
         <div class="bg-light p-5 rounded">
-
-
-            <br>
             <h1 class="text-center bg-warning">PHP AJAX MULTIPLE</h1>
-
             <table class="table" id="main" cellspacing="0">
                 <tr>
                     <td id="header1">
@@ -81,13 +77,13 @@
                             <button type="submit" id="submit" class="btn btn-primary">Submit</button>
 
                         </form>
-                    </br>
-
+                        </br>
+                        <!-- live search -->
                         <div id="search-bar" class="mb-3 col-md-6">
                             <label class="form-label">Search :</label>
                             <input type="text" class="form-control" id="search" autocomplete="off">
                         </div>
-                        
+
                         <div id="error-message"></div>
                         <div id="success-message"></div>
 
@@ -105,15 +101,23 @@
                             </div>
                         </div>
                     </td>
+
                 </tr>
 
                 <tr>
+                    <!-- load table data -->
                     <td id="table-data">
 
                     </td>
                 </tr>
             </table>
 
+            <!-- Pagination -->
+            <div id="pagination" class="pagination justify-content-center">
+                <!-- <li class="active page-item"><a class="page-link" id="1" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" id="2" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" id="3" href="#">3</a></li> -->
+            </div>
 
             <script>
             $(document).ready(function() {
@@ -270,22 +274,45 @@
                     })
 
                 });
-                
-                 // Live search
-                 $('#search').on("keyup", function(e) {
+
+                // Live search
+                $('#search').on("keyup", function(e) {
                     var searchterm = $(this).val();
 
                     $.ajax({
                         url: "ajaxlivesearch.php",
                         type: "POST",
-                        data: {search: searchterm},
+                        data: {
+                            search: searchterm
+                        },
                         success: function(data) {
                             $("#table-data").html(data);
                         }
                     });
                 });
+
+                // Pagination
+                function loadPagination(page){
+                    $.ajax({
+                        type: "POST",
+                        url: "ajaxpagination.php",
+                        data: {page_no : page},
+                        success: function (data) {
+                            $("#table-data").html(data);
+                        }
+                    });
+                }
+                loadPagination();
+
+                // pagination code
+                $(document).on("click","#pagination a", function(e){ // pagination ma jetla a tag hse ena mate
+                    e.preventDefault();
+                    var page_id = $(this).attr("id");
+
+                loadPagination(page_id);
+
+                })
             });
-            // });
             </script>
 
         </div>
