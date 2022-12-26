@@ -8,5 +8,6 @@ Relation table student with collegedetails
 ADD
 UPDATE
 DELETE
+LIVE SEARCH 
 
 with IMAGES..
