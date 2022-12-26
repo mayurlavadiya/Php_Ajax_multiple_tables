@@ -24,13 +24,14 @@
         <div class="bg-light p-5 rounded">
             <h1 class="text-center bg-warning">PHP AJAX MULTIPLE</h1>
             <table class="table" id="main" cellspacing="0">
-
                 <tr>
                     <td id="table-load">
                         <button type="button" id="load-button" class="btn btn-primary">Click here for Preview</button>
                     </td>
+
                 </tr>
-                <tr>
+
+              <tr>
                     <td id="table-data">
 
                     </td>
@@ -88,6 +89,9 @@
                     var studentId = $(this).data("id");
                     // alert(studentId);
                 });
+
+               
+                
             });
             </script>
 

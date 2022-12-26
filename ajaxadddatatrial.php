@@ -24,12 +24,16 @@
 <body>
     <main class="container">
         <div class="bg-light p-5 rounded">
+
+
+            <br>
             <h1 class="text-center bg-warning">PHP AJAX MULTIPLE</h1>
 
             <table class="table" id="main" cellspacing="0">
                 <tr>
                     <td id="header1">
-                        <form action="ajaxinsert.php" method="post" class="row" id="addform" enctype="multipart/form-data">
+                        <form action="ajaxinsert.php" method="post" class="row" id="addform"
+                            enctype="multipart/form-data">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="fname" name="fname" required>
@@ -41,7 +45,8 @@
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Contact</label>
-                                <input type="text" class="form-control" maxlength="10" id="contact" name="contact" required>
+                                <input type="text" class="form-control" maxlength="10" id="contact" name="contact"
+                                    required>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Email</label>
@@ -49,7 +54,8 @@
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Enrollment No.</label>
-                                <input type="text" class="form-control" id="enrollment" name="enroll_no" maxlength="6" required>
+                                <input type="text" class="form-control" id="enrollment" name="enroll_no" maxlength="6"
+                                    required>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Class</label>
@@ -74,30 +80,40 @@
 
                             <button type="submit" id="submit" class="btn btn-primary">Submit</button>
 
-                        </form></br>
+                        </form>
+                    </br>
+
+                        <div id="search-bar" class="mb-3 col-md-6">
+                            <label class="form-label">Search :</label>
+                            <input type="text" class="form-control" id="search" autocomplete="off">
+                        </div>
+                        
                         <div id="error-message"></div>
                         <div id="success-message"></div>
 
                         <div id="modal">
                             <div id="modal-form">
                                 <h2>Update Details</h2>
-                                <form action="ajaxupdate.php"  method="post" class="row" id="updateform" enctype="multipart/form-data">
+                                <form action="ajaxupdate.php" method="post" class="row" id="updateform"
+                                    enctype="multipart/form-data">
 
                                     <table cellpadding="10px" width="100%">
-                                        
-                                        </table>
+
+                                    </table>
                                 </form>
-                                        <div id="close-btn">X</div>
+                                <div id="close-btn">X</div>
                             </div>
                         </div>
                     </td>
                 </tr>
+
                 <tr>
                     <td id="table-data">
 
                     </td>
                 </tr>
             </table>
+
 
             <script>
             $(document).ready(function() {
@@ -116,7 +132,7 @@
                 $("#addform").submit(function(event) {
                     event.preventDefault();
                     let addform = document.getElementById('addform');
-                    let formData = new FormData(addform); 
+                    let formData = new FormData(addform);
                     // console.log(formData);
 
                     // var formData = {
@@ -166,7 +182,7 @@
                             url: "ajaxdelete.php",
                             data: {
                                 id: studentID
-                                
+
                             }, // object ma lidhu n id ne value api-- studentID
                             success: function(data) {
 
@@ -217,7 +233,7 @@
                     event.preventDefault();
                     // alert("Hello");
                     let updateForm = document.getElementById('updateform');
-                    let formData = new FormData(updateForm); 
+                    let formData = new FormData(updateForm);
 
                     // let formData = { 
                     //     studId : $("#edit-id").val();
@@ -248,13 +264,27 @@
                             }
 
                         },
-                        error: function(error){
+                        error: function(error) {
                             console.log(error);
                         }
-                        })
-                        
+                    })
+
+                });
+                
+                 // Live search
+                 $('#search').on("keyup", function(e) {
+                    var searchterm = $(this).val();
+
+                    $.ajax({
+                        url: "ajaxlivesearch.php",
+                        type: "POST",
+                        data: {search: searchterm},
+                        success: function(data) {
+                            $("#table-data").html(data);
+                        }
                     });
                 });
+            });
             // });
             </script>
 

@@ -29,13 +29,13 @@ fname
     </tr>
     <tr>
         <td><b>Enrollment</b></td>
-        <td><input type='text' class='form-control mt-2' id='edit-enrollment' name='enroll_no' maxlength="6"
+        <td><input type='text' class='form-control mt-2' id='edit-enrollment' name='enroll_no' maxlength='6'
                 value='{$row['enrollment_no']}'></td>
     </tr>
     
     <tr>
         <td><b>Contact</b></td>
-        <td><input type='text' class='form-control mt-2' id='edit-contact'  name='contact' maxlength="10"
+        <td><input type='text' class='form-control mt-2' id='edit-contact'  name='contact' maxlength='10'
                 value='{$row['contact']}'></td>
     </tr>
     <tr>
