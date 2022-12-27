@@ -1,7 +1,7 @@
 <?php
 
 include("dbconnection.php");
-
+// history. push method ----- url ma push krva mate
 $limit_per_page = 2;
 $page = "";
 
@@ -64,11 +64,15 @@ $records = mysqli_query($con, $sql_total) or die("Sql Query Failed");
 $total_records = mysqli_num_rows($records); // array pass kryo eni total no of record fetch krse
 
 $total_pages = ceil($total_records / $limit_per_page); // calculation mate
-$output .='<div id="pagination" class="pagination justify-content-center">';
+$output .='<div id="paginations" class="paginations justify-content-center">';
 
-for($i=1; $i <= $total_pages; $i++)
-{
-    $output .="<li class='active page-item'><a class='page-link' id='{$i}' href=''></a></li>";
+for($i=1; $i <= $total_pages; $i++){
+    if($i == $page){
+        $class_name = "active";
+    }else{
+        $class_name = "";
+    }
+    $output .="<a class='{$class_name}' id='{$i}' href=''>$i</a>";
 }
 $output .='</div>';
 

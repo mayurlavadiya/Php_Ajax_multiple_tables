@@ -16,6 +16,7 @@
 
     }
 
+
     #modal{
         background: rgba(0,0,0,0.5);
         position:fixed;
@@ -65,3 +66,21 @@
         right: -15px;
         cursor: pointer;
     }
+    
+    #paginations{
+        text-align: center;
+        padding: 10px;
+      }
+      #paginations a{
+        background: #dc3545;
+        color: #fff;
+        text-decoration: none;
+        display: inline-block;
+        padding:5px 10px;
+        margin-right: 5px;
+        border-radius: 3px;
+      }
+      #paginations a.active{
+        background: #0066ff;
+      }
+    

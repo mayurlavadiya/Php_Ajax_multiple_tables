@@ -113,11 +113,11 @@
             </table>
 
             <!-- Pagination -->
-            <div id="pagination" class="pagination justify-content-center">
-                <!-- <li class="active page-item"><a class="page-link" id="1" href="#">1</a></li>
+            <!-- <div id="pagination" class="pagination justify-content-center"> -->
+                <!-- <li class="page-item"><a class="page-link" id="1" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" id="2" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" id="3" href="#">3</a></li> -->
-            </div>
+            <!-- </div> -->
 
             <script>
             $(document).ready(function() {
@@ -131,7 +131,7 @@
                         }
                     });
                 }
-                loadTable();
+                // loadTable();
 
                 $("#addform").submit(function(event) {
                     event.preventDefault();
@@ -305,7 +305,7 @@
                 loadPagination();
 
                 // pagination code
-                $(document).on("click","#pagination a", function(e){ // pagination ma jetla a tag hse ena mate
+                $(document).on("click","#paginations a", function(e){ // pagination ma jetla a tag hse ena mate
                     e.preventDefault();
                     var page_id = $(this).attr("id");
 
