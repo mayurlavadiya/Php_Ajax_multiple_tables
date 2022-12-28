@@ -28,13 +28,11 @@
                     <td id="table-load">
                         <button type="button" id="load-button" class="btn btn-primary">Click here for Preview</button>
                     </td>
-
                 </tr>
+            <tr>
+                <td id="table-data">
 
-              <tr>
-                    <td id="table-data">
-
-                    </td>
+                </td>
                 </tr>
             </table>
 
@@ -88,9 +86,7 @@
                 $(document).on("click", ".update-btn", function() {
                     var studentId = $(this).data("id");
                     // alert(studentId);
-                });
-
-               
+                });              
                 
             });
             </script>
